@@ -1,0 +1,23 @@
+button {
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    color: white;
+    background-color: rgb(250, 50, 0);
+}
+input {
+    padding: 4px 4px;
+    border-radius: 4px;
+}
+p {
+    text-align: center;
+}
+h1 {
+    text-align: center;
+}
+table {
+    width: 96%;
+}
+td {
+    text-align: center;
+}
