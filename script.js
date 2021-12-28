@@ -21,19 +21,11 @@ function returncolor(x) {
 
 function cleartext() {
     document.getElementById("searchBox").value = null;
+    document.getElementById("show").innerHTML = allHtml;
 }
 
 function showAll() {
-    //pc, mobile 구분 - 보기 편하게, 일단 pc에 맞춰서
-    var filter = "win16|win32|win64|mac|macintel";
-    if (navigator.platform) {
-        if (filter.indexOf(navigator.platform.toLowerCase()) < 0) {
-            songsPerRow = 3;
-        }
-        else {
-            songsPerRow = 6;
-        }
-    }
+    distinguish();
 
     htmlText = "<table align=\"center\">";
     for (let i = 0; i < title.length; i++) {
@@ -58,6 +50,18 @@ function showAll() {
     allHtml = htmlText;
 }
 
+function distinguish() {
+    var filter = "win16|win32|win64|mac|macintel";
+    if (navigator.platform) {
+        if (filter.indexOf(navigator.platform.toLowerCase()) < 0) {
+            songsPerRow = 2;
+        }
+        else {
+            songsPerRow = 6;
+        }
+    }
+}
+
 function spanCalc(x) {
     var remainder = x % songsPerRow;
     if (remainder == 0) {
@@ -73,13 +77,18 @@ function search(str) {
     else {
         var searchedSinger = "<table align=\"center\">";
         var searchedSong = "<table align=\"center\">";
+        let strlen = str.length;
         for (let i = 0; i < title.length; i++) {
-            var songslen = title[i].songs.length;
+            var singer = title[i].singer;
+            var songs = title[i].songs;
+            var songslen = songs.length;
             var spannum = spanCalc(songslen);
-            if (title[i].singer.search(str) != -1) {
-                searchedSinger += "<tr><td rowspan=\"" + spannum + "\">" + title[i].singer + "</td>";
+            var searchResult = singer.search(str);
+            if (searchResult != -1) {
+                searchedSinger += "<tr><td rowspan=\"" + spannum + "\">" + singer.substring(0, searchResult) + "<b>"
+                    + singer.substr(searchResult, strlen) + "</b>" + singer.substr(searchResult + strlen) + "</td>";
                 for (let j = 0; j < songslen; j++) {
-                    searchedSinger += "<td>" + title[i].songs[j].split("/")[0] + "</td>";
+                    searchedSinger += "<td>" + songs[j].split("/")[0] + "</td>";
                     if (j % songsPerRow == songsPerRow - 1) {
                         searchedSinger += "</tr>";
                         if (j != songslen - 1) {
@@ -93,9 +102,12 @@ function search(str) {
             }
             else {
                 for (let j = 0; j < songslen; j++) {
-                    if (title[i].songs[j].search(str) != -1) {
-                        searchedSong += "<tr><td>" + title[i].singer + "</td>";
-                        searchedSong += "<td>" + title[i].songs[j].split("/")[0] + "</td></tr>";
+                    searchResult = songs[j].search(str);
+                    if (searchResult != -1) {
+                        var song = songs[j].split("/")[0];
+                        searchedSong += "<tr><td>" + singer + "</td>";
+                        searchedSong += "<td>" + song.substring(0, searchResult) + "<b>" + song.substr(searchResult, strlen)
+                            + "</b>" + song.substr(searchResult + strlen) + "</td></tr>";
                     }
                 }
             }

@@ -20,4 +20,9 @@ table {
 }
 td {
     text-align: center;
+    border: 1px solid;
+}
+b {
+    color: white;
+    background-color: rgb(0, 50, 250);
 }
