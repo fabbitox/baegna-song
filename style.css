@@ -32,3 +32,4 @@ p.index {
     left: 4%;
     bottom: 4%;
 }
+@media (min-width: 480px) {td {font-size: small;}}
