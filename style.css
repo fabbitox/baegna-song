@@ -3,7 +3,6 @@ button {
     padding: 6px 12px;
     border-radius: 4px;
     color: white;
-    background-color: rgb(250, 50, 100);
 }
 input {
     padding: 4px 4px;
@@ -23,8 +22,14 @@ td {
     border: 1px solid;
     padding-top: 7px;
     padding-bottom: 7px;
+    font-size: small;
 }
 b {
     color: white;
     background-color: rgb(250, 100, 200);
+}
+p.index {
+    position: fixed;
+    left: 4%;
+    bottom: 4%;
 }

@@ -11,9 +11,38 @@
             <input id="searchBox" type="text" oninput="search(this.value)">
             <button onclick="cleartext()"
                 onmouseenter="changecolor(this)"
-                onmouseleave="returncolor(this)">초기화</button>
+                onmouseleave="returncolor(this)"
+                style="background-color: rgb(250, 50, 100);">초기화</button>
         </p>
         <p id="show"></p>
+        <p class="index" style="background-color: white;">
+            <button onclick="location.href=''"
+                onmouseenter="returncolor(this)"
+                onmouseleave="changecolor(this)"
+                style="background-color: rgb(250, 250, 50);
+                    color: black;">맨 위로(검색)</button>
+            <button onclick="location.href='#baegna'"
+                onmouseenter="changecolor(this)"
+                onmouseleave="returncolor(this)"
+                style="background-color: rgb(250, 150, 50);">배그나</button>
+            <button onclick="location.href='#trot'"
+                onmouseenter="changecolor(this)"
+                onmouseleave="returncolor(this)"
+                style="background-color: rgb(250, 50, 100);">트로트</button>
+            <button onclick="location.href='#mrTrot'"
+                onmouseenter="changecolor(this)"
+                onmouseleave="returncolor(this)"
+                style="background-color: rgb(200, 50, 250);">미스터 트로트</button>
+            <button onclick="location.href='#old'"
+                onmouseenter="changecolor(this)"
+                onmouseleave="returncolor(this)"
+                style="background-color: rgb(100, 50, 250);">옛 가요</button>
+            <button onclick="location.href='#other'"
+                onmouseenter="changecolor(this)"
+                onmouseleave="returncolor(this)"
+                style="background-color: rgb(50, 150, 250);">팝, 애니</button>
+            &nbsp; made by 미로그나
+        </p>
         <script src="script.js"></script>
     </body>
 </html>
