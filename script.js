@@ -264,7 +264,7 @@ function oldTable() {
 }
 
 function mrTrotTable() {
-    htmlText += "<table align=\"center\" <caption><h3 id=\"mrTrot\">미스터 트롯</h3></caption>";
+    htmlText += "<table align=\"center\" <caption><h3 id=\"mrTrot\">미스터트롯</h3></caption>";
     for (let i = 0; i < mrTrot.length; i++) {
         let songslen = mrTrot[i].songs.length;
         let spannum = spanCalc(songslen);
