@@ -187,26 +187,26 @@ function spanCalc(x) {// 몇 줄인지 계산
 function showAll() {// 목록 전부 보여주기
     distinguish();
 
-    titleTable();
-    htmlText += "<br>";
-    trotTable();
-    htmlText += "<br>";
-    mrTrotTable();
-    htmlText += "<br>";
-    oldTable();
-    htmlText += "<br>";
-    otherTable();
+    htmlText = "<table id=\"baegna\" align=\"center\">";
+    showTable(title);
+    htmlText += "<br><table align=\"center\" <caption><h3 id=\"trot\">트로트</h3></caption>";
+    showTable(trot);
+    htmlText += "<br><table align=\"center\" <caption><h3 id=\"mrTrot\">미스터트롯</h3></caption>";
+    showTable(mrTrot);
+    htmlText += "<br><table align=\"center\" <caption><h3 id=\"old\">옛 가요</h3></caption>";
+    showTable(old);
+    htmlText += "<br><table align=\"center\" <caption><h3 id=\"other\">팝, 애니</h3></caption>";
+    showTable(other);
 
     document.getElementById("show").innerHTML = htmlText;
     allHtml = htmlText;
 }
 
-function otherTable() {
-    htmlText += "<table align=\"center\" <caption><h3 id=\"other\">팝, 애니</h3></caption>";
-    for (let i = 0; i < other.length; i++) {
-        let songslen = other[i].songs.length;
+function showTable(table) {
+    for (let i = 0; i < table.length; i++) {
+        let songslen = table[i].songs.length;
         let spannum = spanCalc(songslen);
-        htmlText += "<tr><td rowspan=\"" + spannum + "\">" + other[i].singer.split("/")[0] + "</td>"; // 가수
+        htmlText += "<tr><td rowspan=\"" + spannum + "\">" + table[i].singer.split("/")[0] + "</td>"; // 가수
         for (let j = 0; j < songslen; j++) { // 노래들
             htmlText += "<td ";
             if (songsPerRow == 2) {
@@ -215,127 +215,7 @@ function otherTable() {
             else {
                 htmlText += "style=\"width:14.5%;\"";
             }
-            htmlText += ">" + other[i].songs[j].split("/")[0] + "</td>";
-            if (j % songsPerRow == songsPerRow - 1) {
-                htmlText += "</tr>";
-                if (j != songslen - 1) {
-                    htmlText += "<tr>";
-                }
-            }
-        }
-        if (songslen % songsPerRow != 0) {
-            htmlText += "</tr>";
-        }
-    }
-    htmlText += "</table>";
-}
-
-function oldTable() {
-    htmlText += "<table align=\"center\" <caption><h3 id=\"old\">옛 가요</h3></caption>";
-    for (let i = 0; i < old.length; i++) {
-        let songslen = old[i].songs.length;
-        let spannum = spanCalc(songslen);
-        htmlText += "<tr><td rowspan=\"" + spannum + "\">" + old[i].singer.split("/")[0] + "</td>"; // 가수
-        for (let j = 0; j < songslen; j++) { // 노래들
-            htmlText += "<td ";
-            if (songsPerRow == 2) {
-                htmlText += "style=\"width:34%;\"";
-            }
-            else {
-                htmlText += "style=\"width:14.5%;\"";
-            }
-            htmlText += ">" + old[i].songs[j].split("/")[0] + "</td>";
-            if (j % songsPerRow == songsPerRow - 1) {
-                htmlText += "</tr>";
-                if (j != songslen - 1) {
-                    htmlText += "<tr>";
-                }
-            }
-        }
-        if (songslen % songsPerRow != 0) {
-            htmlText += "</tr>";
-        }
-    }
-    htmlText += "</table>";
-}
-
-function mrTrotTable() {
-    htmlText += "<table align=\"center\" <caption><h3 id=\"mrTrot\">미스터트롯</h3></caption>";
-    for (let i = 0; i < mrTrot.length; i++) {
-        let songslen = mrTrot[i].songs.length;
-        let spannum = spanCalc(songslen);
-        htmlText += "<tr><td rowspan=\"" + spannum + "\">" + mrTrot[i].singer.split("/")[0] + "</td>"; // 가수
-        for (let j = 0; j < songslen; j++) { // 노래들
-            htmlText += "<td ";
-            if (songsPerRow == 2) {
-                htmlText += "style=\"width:34%;\"";
-            }
-            else {
-                htmlText += "style=\"width:14.5%;\"";
-            }
-            htmlText += ">" + mrTrot[i].songs[j].split("/")[0] + "</td>";
-            if (j % songsPerRow == songsPerRow - 1) {
-                htmlText += "</tr>";
-                if (j != songslen - 1) {
-                    htmlText += "<tr>";
-                }
-            }
-        }
-        if (songslen % songsPerRow != 0) {
-            htmlText += "</tr>";
-        }
-    }
-    htmlText += "</table>";
-}
-
-function trotTable() {
-    htmlText += "<table align=\"center\" <caption><h3 id=\"trot\">트로트</h3></caption>";
-    for (let i = 0; i < trot.length; i++) {
-        let songslen = trot[i].songs.length;
-        let spannum = spanCalc(songslen);
-        htmlText += "<tr><td rowspan=\"" + spannum + "\">" + trot[i].singer.split("/")[0] + "</td>"; // 가수
-        for (let j = 0; j < songslen; j++) { // 노래들
-            htmlText += "<td ";
-            if (songsPerRow == 2) {
-                htmlText += "style=\"width:34%;\"";
-            }
-            else {
-                htmlText += "style=\"width:14.5%;\"";
-            }
-            htmlText += ">" + trot[i].songs[j].split("/")[0] + "</td>";
-            if (j % songsPerRow == songsPerRow - 1) {
-                htmlText += "</tr>";
-                if (j != songslen - 1) {
-                    htmlText += "<tr>";
-                }
-            }
-        }
-        if (songslen % songsPerRow != 0) {
-            htmlText += "</tr>";
-        }
-    }
-    htmlText += "</table>";
-}
-
-function titleTable() {
-    htmlText = "<table id=\"baegna\" align=\"center\">";
-    for (let i = 0; i < title.length; i++) {
-        let songslen = title[i].songs.length;
-        let spannum = spanCalc(songslen);
-        htmlText += "<tr><td rowspan=\"" + spannum + "\"";
-        if (i == 0) {
-            htmlText += " style=\"background-color: rgb(50, 250, 150);\"";
-        }
-        htmlText += ">" + title[i].singer.split("/")[0] + "</td>"; // 가수
-        for (let j = 0; j < songslen; j++) { // 노래들
-            htmlText += "<td ";
-            if (songsPerRow == 2) {
-                htmlText += "style=\"width: 34%;\"";
-            }
-            else {
-                htmlText += "style=\"width: 14.5%;\"";
-            }
-            htmlText += ">" + title[i].songs[j].split("/")[0] + "</td>";
+            htmlText += ">" + table[i].songs[j].split("/")[0] + "</td>";
             if (j % songsPerRow == songsPerRow - 1) {
                 htmlText += "</tr>";
                 if (j != songslen - 1) {
@@ -358,134 +238,41 @@ function search(str) {// 검색 결과 띄우기
         let searchedSinger = "<table align=\"center\">";
         let searchedSong = "<table align=\"center\">";
         let words = str.trim().split(/\s+/);// 띄어쓰기 검색 고려, 단어로 나눔
-        let strlen = [];// 단어의 길이
+        let wordslen = [];// 단어의 길이
         let numwords = words.length;// 단어 수
         for (let i = 0; i < numwords; i++) {// 각 단어 길이 구하기
             let wordlen = words[i].length;
-            strlen.push(wordlen);
+            wordslen.push(wordlen);
         }
-        ({ searchedSinger, searchedSong } = titleSearch(numwords, words, searchedSinger, strlen, searchedSong));
-        ({ searchedSinger, searchedSong } = trotSearch(numwords, words, searchedSinger, strlen, searchedSong));
-        ({ searchedSinger, searchedSong } = mrTrotSearch(numwords, words, searchedSinger, strlen, searchedSong));
-        ({ searchedSinger, searchedSong } = oldSearch(numwords, words, searchedSinger, strlen, searchedSong));
-        ({ searchedSinger, searchedSong } = otherSearch(numwords, words, searchedSinger, strlen, searchedSong));
+        ({ searchedSinger, searchedSong } = searchTable(title, words, wordslen, numwords, searchedSinger, searchedSong));
+        ({ searchedSinger, searchedSong } = searchTable(trot, words, wordslen, numwords, searchedSinger, searchedSong));
+        ({ searchedSinger, searchedSong } = searchTable(mrTrot, words, wordslen, numwords, searchedSinger, searchedSong));
+        ({ searchedSinger, searchedSong } = searchTable(old, words, wordslen, numwords, searchedSinger, searchedSong));
+        ({ searchedSinger, searchedSong } = searchTable(other, words, wordslen, numwords, searchedSinger, searchedSong));
         document.getElementById("show").innerHTML = searchedSinger + searchedSong;
     }
 }
 
-function otherSearch(numwords, words, searchedSinger, strlen, searchedSong) {
-    for (let i = 0; i < other.length; i++) {
-        let singer = other[i].singer; // 가수
-        let songs = other[i].songs; // 노래들
-        let songslen = songs.length; // 노래 수
+function searchTable(table, words, wordslen, numwords, searchedSinger, searchedSong) {
+    for (let i = 0; i < table.length; i++) {
+        let singer = table[i].singer;// 가수
+        let songs = table[i].songs;// 노래들
+        let songslen = songs.length;// 노래 수
         let spannum = spanCalc(songslen);
-        let searchResult = []; // 검색 결과
-        for (let j = 0; j < numwords; j++) { // 가수 검색
+        let searchResult = [];// 검색 결과
+        for (let j = 0; j < numwords; j++) {// 가수 검색
             let wordSearch = singer.toLowerCase().search(words[j].toLowerCase());
             if (wordSearch != -1) {
                 searchResult.push(wordSearch);
             }
         }
         singer = singer.split("/")[0];
-        if (numwords == searchResult.length) { // 가수에서 단어들이 다 검색되면
-            searchedSinger += "<tr><td rowspan=\"" + spannum + "\" ";
-            if (songsPerRow == 2) {
-                searchedSinger += "style=\"width:32%;\"";
-            }
-            else {
-                searchedSinger += "style=\"width:13%;\"";
-            }
-            searchedSinger += ">" + singer.substring(0, searchResult[0]); // 첫 단어 검색 전
-            let pos;
-            let index;
-            for (let j = 0; j < numwords; j++) {
-                if (j == 0) {
-                    pos = searchResult[0];
-                    index = 0;
-                    searchedSinger += "<b>" + singer.substr(pos, strlen[0]) + "</b>"; // 처음 검색된 부분
-                }
-                else {
-                    if (searchResult[j] > pos) {
-                        pos = searchResult[j];
-                        index = j;
-                        searchedSinger += "<b>" + singer.substr(pos, strlen[j]) + "</b>"; // 다음 검색된 부분
-                    }
-                }
-                if (j != numwords - 1) { // 마지막 단어가 아니면
-                    if (searchResult[j] + strlen[j] < searchResult[j + 1]) { // 다음 단어 검색 전
-                        searchedSinger += singer.substring(searchResult[j] + strlen[j], searchResult[j + 1]);
-                    }
-                }
-            }
-            searchedSinger += singer.substr(pos + strlen[index]) + "</td>"; // 마지막 단어 검색 후
+        if (numwords == searchResult.length) {// 가수에서 단어들이 다 검색되면
+            searchedSinger = singerSearch(searchedSinger, spannum, singer, searchResult, numwords, wordslen);// 검색된 가수 이름 띄우기
 
-            for (let j = 0; j < songslen; j++) {
-                let songResult = []; // 가수 노래 검색
-                let index = [];
-                for (let k = 0; k < numwords; k++) { // 노래에서도 검색되는지
-                    let songSearch = songs[j].toLowerCase().search(words[k].toLowerCase());
-                    if (songSearch != -1) {
-                        songResult.push(songSearch);
-                        index.push(k);
-                    }
-                }
-                let song = songs[j].split("/")[0];
-                let inlen = index.length;
-                if (inlen != 0) { // 노래에서 검색된 게 있음
-                    searchedSinger += "<td ";
-                    if (songsPerRow == 2) {
-                        searchedSinger += "style=\"width:34%;\"";
-                    }
-                    else {
-                        searchedSinger += "style=\"width:14.5%;\"";
-                    }
-                    searchedSinger += ">" + song.substring(0, songResult[0]);
-                    let pos;
-                    let ind;
-                    for (let k = 0; k < inlen; k++) {
-                        if (k == 0) {
-                            pos = songResult[0];
-                            ind = index[0];
-                            searchedSinger += "<b>" + song.substr(pos, strlen[ind]) + "</b>"; // 처음 검색된 부분
-                        }
-                        else {
-                            if (songResult[k] > pos) {
-                                pos = songResult[k];
-                                ind = index[k];
-                                searchedSinger += "<b>" + song.substr(pos, strlen[ind]) + "</b>"; // 다음 검색된 부분
-                            }
-                        }
-                        if (k != inlen - 1) {
-                            let inK = index[k];
-                            if (songResult[k] + strlen[inK] < songResult[k + 1]) {
-                                searchedSinger += song.substring(songResult[k] + strlen[inK], songResult[k + 1]);
-                            }
-                        }
-                    }
-                    searchedSinger += song.substr(pos + strlen[ind]) + "</td>";
-                }
-                else { // 없음
-                    searchedSinger += "<td ";
-                    if (songsPerRow == 2) {
-                        searchedSinger += "style=\"width:34%;\"";
-                    }
-                    else {
-                        searchedSinger += "style=\"width:14.5%;\"";
-                    }
-                    searchedSinger += ">" + song + "</td>";
-                }
-                if (j % songsPerRow == songsPerRow - 1) {
-                    searchedSinger += "</tr>";
-                    if (j != songslen - 1) {
-                        searchedSinger += "<tr>";
-                    }
-                }
-            }
-            if (songslen % songsPerRow != 0) {
-                searchedSinger += "</tr>";
-            }
+            searchedSinger = songsOfSinger(songslen, numwords, songs, words, searchedSinger, wordslen);// 검색된 가수의 노래 띄우기
         }
-        else {
+        else {// 가수에서 검색되지 않음 -> 노래에서 검색
             for (let j = 0; j < songslen; j++) {
                 searchResult = [];
                 for (let k = 0; k < numwords; k++) {
@@ -494,7 +281,7 @@ function otherSearch(numwords, words, searchedSinger, strlen, searchedSong) {
                         searchResult.push(wordSearch);
                     }
                 }
-                if (numwords == searchResult.length) {
+                if (numwords == searchResult.length) {// 검색된 게 있으면 표시와 함께 띄움
                     let song = songs[j].split("/")[0];
                     searchedSong += "<tr><td>" + singer + "</td>" + "<td>" + song.substring(0, searchResult[0]);
                     let pos;
@@ -503,22 +290,22 @@ function otherSearch(numwords, words, searchedSinger, strlen, searchedSong) {
                         if (k == 0) {
                             pos = searchResult[0];
                             index = 0;
-                            searchedSong += "<b>" + song.substr(pos, strlen[0]) + "</b>";
+                            searchedSong += "<b>" + song.substr(pos, wordslen[0]) + "</b>";
                         }
                         else {
                             if (searchResult[k] > pos) {
                                 pos = searchResult[k];
                                 index = k;
-                                searchedSong += "<b>" + song.substr(pos, strlen[k]) + "</b>";
+                                searchedSong += "<b>" + song.substr(pos, wordslen[k]) + "</b>";
                             }
                         }
                         if (k != numwords - 1) {
-                            if (searchResult[k] + strlen[k] < searchResult[k + 1]) {
-                                searchedSong += song.substring(searchResult[k] + strlen[k], searchResult[k + 1]);
+                            if (searchResult[k] + wordslen[k] < searchResult[k + 1]) {
+                                searchedSong += song.substring(searchResult[k] + wordslen[k], searchResult[k + 1]);
                             }
                         }
                     }
-                    searchedSong += song.substr(pos + strlen[index]) + "</td></tr>";
+                    searchedSong += song.substr(pos + wordslen[index]) + "</td></tr>";
                 }
             }
         }
@@ -526,614 +313,112 @@ function otherSearch(numwords, words, searchedSinger, strlen, searchedSong) {
     return { searchedSinger, searchedSong };
 }
 
-function oldSearch(numwords, words, searchedSinger, strlen, searchedSong) {
-    for (let i = 0; i < old.length; i++) {
-        let singer = old[i].singer; // 가수
-        let songs = old[i].songs; // 노래들
-        let songslen = songs.length; // 노래 수
-        let spannum = spanCalc(songslen);
-        let searchResult = []; // 검색 결과
-        for (let j = 0; j < numwords; j++) { // 가수 검색
-            let wordSearch = singer.toLowerCase().search(words[j].toLowerCase());
-            if (wordSearch != -1) {
-                searchResult.push(wordSearch);
+function songsOfSinger(songslen, numwords, songs, words, searchedSinger, strlen) {
+    for (let j = 0; j < songslen; j++) {
+        let songResult = []; // 가수 노래 검색
+        let index = [];
+        for (let k = 0; k < numwords; k++) { // 노래에서도 검색되는지 확인
+            let songSearch = songs[j].toLowerCase().search(words[k].toLowerCase());
+            if (songSearch != -1) {
+                songResult.push(songSearch);
+                index.push(k);
             }
         }
-        singer = singer.split("/")[0];
-        if (numwords == searchResult.length) { // 가수에서 단어들이 다 검색되면
-            searchedSinger += "<tr><td rowspan=\"" + spannum + "\" ";
+        let song = songs[j].split("/")[0];
+        let inlen = index.length;
+        if (inlen != 0) { // 노래에서 검색된 게 있으면 표시와 함께 띄움
+            let pos;
+            let ind;
+            ({ pos, ind, searchedSinger } = highlightSong(searchedSinger, song, songResult, inlen, index, strlen));
+            searchedSinger += song.substr(pos + strlen[ind]) + "</td>";
+        }
+        else { // 없으면 그냥 띄움
+            searchedSinger += "<td ";
             if (songsPerRow == 2) {
-                searchedSinger += "style=\"width:32%;\"";
+                searchedSinger += "style=\"width:34%;\"";
             }
             else {
-                searchedSinger += "style=\"width:13%;\"";
+                searchedSinger += "style=\"width:14.5%;\"";
             }
-            searchedSinger += ">" + singer.substring(0, searchResult[0]); // 첫 단어 검색 전
-            let pos;
-            let index;
-            for (let j = 0; j < numwords; j++) {
-                if (j == 0) {
-                    pos = searchResult[0];
-                    index = 0;
-                    searchedSinger += "<b>" + singer.substr(pos, strlen[0]) + "</b>"; // 처음 검색된 부분
-                }
-                else {
-                    if (searchResult[j] > pos) {
-                        pos = searchResult[j];
-                        index = j;
-                        searchedSinger += "<b>" + singer.substr(pos, strlen[j]) + "</b>"; // 다음 검색된 부분
-                    }
-                }
-                if (j != numwords - 1) { // 마지막 단어가 아니면
-                    if (searchResult[j] + strlen[j] < searchResult[j + 1]) { // 다음 단어 검색 전
-                        searchedSinger += singer.substring(searchResult[j] + strlen[j], searchResult[j + 1]);
-                    }
-                }
-            }
-            searchedSinger += singer.substr(pos + strlen[index]) + "</td>"; // 마지막 단어 검색 후
-
-            for (let j = 0; j < songslen; j++) {
-                let songResult = []; // 가수 노래 검색
-                let index = [];
-                for (let k = 0; k < numwords; k++) { // 노래에서도 검색되는지
-                    let songSearch = songs[j].toLowerCase().search(words[k].toLowerCase());
-                    if (songSearch != -1) {
-                        songResult.push(songSearch);
-                        index.push(k);
-                    }
-                }
-                let song = songs[j].split("/")[0];
-                let inlen = index.length;
-                if (inlen != 0) { // 노래에서 검색된 게 있음
-                    searchedSinger += "<td ";
-                    if (songsPerRow == 2) {
-                        searchedSinger += "style=\"width:34%;\"";
-                    }
-                    else {
-                        searchedSinger += "style=\"width:14.5%;\"";
-                    }
-                    searchedSinger += ">" + song.substring(0, songResult[0]);
-                    let pos;
-                    let ind;
-                    for (let k = 0; k < inlen; k++) {
-                        if (k == 0) {
-                            pos = songResult[0];
-                            ind = index[0];
-                            searchedSinger += "<b>" + song.substr(pos, strlen[ind]) + "</b>"; // 처음 검색된 부분
-                        }
-                        else {
-                            if (songResult[k] > pos) {
-                                pos = songResult[k];
-                                ind = index[k];
-                                searchedSinger += "<b>" + song.substr(pos, strlen[ind]) + "</b>"; // 다음 검색된 부분
-                            }
-                        }
-                        if (k != inlen - 1) {
-                            let inK = index[k];
-                            if (songResult[k] + strlen[inK] < songResult[k + 1]) {
-                                searchedSinger += song.substring(songResult[k] + strlen[inK], songResult[k + 1]);
-                            }
-                        }
-                    }
-                    searchedSinger += song.substr(pos + strlen[ind]) + "</td>";
-                }
-                else { // 없음
-                    searchedSinger += "<td ";
-                    if (songsPerRow == 2) {
-                        searchedSinger += "style=\"width:34%;\"";
-                    }
-                    else {
-                        searchedSinger += "style=\"width:14.5%;\"";
-                    }
-                    searchedSinger += ">" + song + "</td>";
-                }
-                if (j % songsPerRow == songsPerRow - 1) {
-                    searchedSinger += "</tr>";
-                    if (j != songslen - 1) {
-                        searchedSinger += "<tr>";
-                    }
-                }
-            }
-            if (songslen % songsPerRow != 0) {
-                searchedSinger += "</tr>";
-            }
+            searchedSinger += ">" + song + "</td>";
         }
-        else {
-            for (let j = 0; j < songslen; j++) {
-                searchResult = [];
-                for (let k = 0; k < numwords; k++) {
-                    let wordSearch = songs[j].toLowerCase().search(words[k].toLowerCase());
-                    if (wordSearch != -1) {
-                        searchResult.push(wordSearch);
-                    }
-                }
-                if (numwords == searchResult.length) {
-                    let song = songs[j].split("/")[0];
-                    searchedSong += "<tr><td>" + singer + "</td>" + "<td>" + song.substring(0, searchResult[0]);
-                    let pos;
-                    let index;
-                    for (let k = 0; k < numwords; k++) {
-                        if (k == 0) {
-                            pos = searchResult[0];
-                            index = 0;
-                            searchedSong += "<b>" + song.substr(pos, strlen[0]) + "</b>";
-                        }
-                        else {
-                            if (searchResult[k] > pos) {
-                                pos = searchResult[k];
-                                index = k;
-                                searchedSong += "<b>" + song.substr(pos, strlen[k]) + "</b>";
-                            }
-                        }
-                        if (k != numwords - 1) {
-                            if (searchResult[k] + strlen[k] < searchResult[k + 1]) {
-                                searchedSong += song.substring(searchResult[k] + strlen[k], searchResult[k + 1]);
-                            }
-                        }
-                    }
-                    searchedSong += song.substr(pos + strlen[index]) + "</td></tr>";
-                }
+        if (j % songsPerRow == songsPerRow - 1) {
+            searchedSinger += "</tr>";
+            if (j != songslen - 1) {
+                searchedSinger += "<tr>";
             }
         }
     }
-    return { searchedSinger, searchedSong };
+    if (songslen % songsPerRow != 0) {
+        searchedSinger += "</tr>";
+    }
+    return searchedSinger;
 }
 
-function mrTrotSearch(numwords, words, searchedSinger, strlen, searchedSong) {
-    for (let i = 0; i < mrTrot.length; i++) {
-        let singer = mrTrot[i].singer; // 가수
-        let songs = mrTrot[i].songs; // 노래들
-        let songslen = songs.length; // 노래 수
-        let spannum = spanCalc(songslen);
-        let searchResult = []; // 검색 결과
-        for (let j = 0; j < numwords; j++) { // 가수 검색
-            let wordSearch = singer.toLowerCase().search(words[j].toLowerCase());
-            if (wordSearch != -1) {
-                searchResult.push(wordSearch);
-            }
-        }
-        singer = singer.split("/")[0];
-        if (numwords == searchResult.length) { // 가수에서 단어들이 다 검색되면
-            searchedSinger += "<tr><td rowspan=\"" + spannum + "\" ";
-            if (songsPerRow == 2) {
-                searchedSinger += "style=\"width:32%;\"";
-            }
-            else {
-                searchedSinger += "style=\"width:13%;\"";
-            }
-            searchedSinger += ">" + singer.substring(0, searchResult[0]); // 첫 단어 검색 전
-            let pos;
-            let index;
-            for (let j = 0; j < numwords; j++) {
-                if (j == 0) {
-                    pos = searchResult[0];
-                    index = 0;
-                    searchedSinger += "<b>" + singer.substr(pos, strlen[0]) + "</b>"; // 처음 검색된 부분
-                }
-                else {
-                    if (searchResult[j] > pos) {
-                        pos = searchResult[j];
-                        index = j;
-                        searchedSinger += "<b>" + singer.substr(pos, strlen[j]) + "</b>"; // 다음 검색된 부분
-                    }
-                }
-                if (j != numwords - 1) { // 마지막 단어가 아니면
-                    if (searchResult[j] + strlen[j] < searchResult[j + 1]) { // 다음 단어 검색 전
-                        searchedSinger += singer.substring(searchResult[j] + strlen[j], searchResult[j + 1]);
-                    }
-                }
-            }
-            searchedSinger += singer.substr(pos + strlen[index]) + "</td>"; // 마지막 단어 검색 후
-
-            for (let j = 0; j < songslen; j++) {
-                let songResult = []; // 가수 노래 검색
-                let index = [];
-                for (let k = 0; k < numwords; k++) { // 노래에서도 검색되는지
-                    let songSearch = songs[j].toLowerCase().search(words[k].toLowerCase());
-                    if (songSearch != -1) {
-                        songResult.push(songSearch);
-                        index.push(k);
-                    }
-                }
-                let song = songs[j].split("/")[0];
-                let inlen = index.length;
-                if (inlen != 0) { // 노래에서 검색된 게 있음
-                    searchedSinger += "<td ";
-                    if (songsPerRow == 2) {
-                        searchedSinger += "style=\"width:34%;\"";
-                    }
-                    else {
-                        searchedSinger += "style=\"width:14.5%;\"";
-                    }
-                    searchedSinger += ">" + song.substring(0, songResult[0]);
-                    let pos;
-                    let ind;
-                    for (let k = 0; k < inlen; k++) {
-                        if (k == 0) {
-                            pos = songResult[0];
-                            ind = index[0];
-                            searchedSinger += "<b>" + song.substr(pos, strlen[ind]) + "</b>"; // 처음 검색된 부분
-                        }
-                        else {
-                            if (songResult[k] > pos) {
-                                pos = songResult[k];
-                                ind = index[k];
-                                searchedSinger += "<b>" + song.substr(pos, strlen[ind]) + "</b>"; // 다음 검색된 부분
-                            }
-                        }
-                        if (k != inlen - 1) {
-                            let inK = index[k];
-                            if (songResult[k] + strlen[inK] < songResult[k + 1]) {
-                                searchedSinger += song.substring(songResult[k] + strlen[inK], songResult[k + 1]);
-                            }
-                        }
-                    }
-                    searchedSinger += song.substr(pos + strlen[ind]) + "</td>";
-                }
-                else { // 없음
-                    searchedSinger += "<td ";
-                    if (songsPerRow == 2) {
-                        searchedSinger += "style=\"width:34%;\"";
-                    }
-                    else {
-                        searchedSinger += "style=\"width:14.5%;\"";
-                    }
-                    searchedSinger += ">" + song + "</td>";
-                }
-                if (j % songsPerRow == songsPerRow - 1) {
-                    searchedSinger += "</tr>";
-                    if (j != songslen - 1) {
-                        searchedSinger += "<tr>";
-                    }
-                }
-            }
-            if (songslen % songsPerRow != 0) {
-                searchedSinger += "</tr>";
-            }
+function highlightSong(searchedSinger, song, songResult, inlen, index, strlen) {
+    searchedSinger += "<td ";
+    if (songsPerRow == 2) {
+        searchedSinger += "style=\"width:34%;\"";
+    }
+    else {
+        searchedSinger += "style=\"width:14.5%;\"";
+    }
+    searchedSinger += ">" + song.substring(0, songResult[0]);
+    let pos;
+    let ind;
+    for (let k = 0; k < inlen; k++) {
+        if (k == 0) {
+            pos = songResult[0];
+            ind = index[0];
+            searchedSinger += "<b>" + song.substr(pos, strlen[ind]) + "</b>"; // 처음 검색된 부분
         }
         else {
-            for (let j = 0; j < songslen; j++) {
-                searchResult = [];
-                for (let k = 0; k < numwords; k++) {
-                    let wordSearch = songs[j].toLowerCase().search(words[k].toLowerCase());
-                    if (wordSearch != -1) {
-                        searchResult.push(wordSearch);
-                    }
-                }
-                if (numwords == searchResult.length) {
-                    let song = songs[j].split("/")[0];
-                    searchedSong += "<tr><td>" + singer + "</td>" + "<td>" + song.substring(0, searchResult[0]);
-                    let pos;
-                    let index;
-                    for (let k = 0; k < numwords; k++) {
-                        if (k == 0) {
-                            pos = searchResult[0];
-                            index = 0;
-                            searchedSong += "<b>" + song.substr(pos, strlen[0]) + "</b>";
-                        }
-                        else {
-                            if (searchResult[k] > pos) {
-                                pos = searchResult[k];
-                                index = k;
-                                searchedSong += "<b>" + song.substr(pos, strlen[k]) + "</b>";
-                            }
-                        }
-                        if (k != numwords - 1) {
-                            if (searchResult[k] + strlen[k] < searchResult[k + 1]) {
-                                searchedSong += song.substring(searchResult[k] + strlen[k], searchResult[k + 1]);
-                            }
-                        }
-                    }
-                    searchedSong += song.substr(pos + strlen[index]) + "</td></tr>";
-                }
+            if (songResult[k] > pos) {
+                pos = songResult[k];
+                ind = index[k];
+                searchedSinger += "<b>" + song.substr(pos, strlen[ind]) + "</b>"; // 다음 검색된 부분
+            }
+        }
+        if (k != inlen - 1) {
+            let inK = index[k];
+            if (songResult[k] + strlen[inK] < songResult[k + 1]) {
+                searchedSinger += song.substring(songResult[k] + strlen[inK], songResult[k + 1]);
             }
         }
     }
-    return { searchedSinger, searchedSong };
+    return { pos, ind, searchedSinger };
 }
 
-function trotSearch(numwords, words, searchedSinger, strlen, searchedSong) {
-    for (let i = 0; i < trot.length; i++) {
-        let singer = trot[i].singer; // 가수
-        let songs = trot[i].songs; // 노래들
-        let songslen = songs.length; // 노래 수
-        let spannum = spanCalc(songslen);
-        let searchResult = []; // 검색 결과
-        for (let j = 0; j < numwords; j++) { // 가수 검색
-            let wordSearch = singer.toLowerCase().search(words[j].toLowerCase());
-            if (wordSearch != -1) {
-                searchResult.push(wordSearch);
-            }
-        }
-        singer = singer.split("/")[0];
-        if (numwords == searchResult.length) { // 가수에서 단어들이 다 검색되면
-            searchedSinger += "<tr><td rowspan=\"" + spannum + "\" ";
-            if (songsPerRow == 2) {
-                searchedSinger += "style=\"width:32%;\"";
-            }
-            else {
-                searchedSinger += "style=\"width:13%;\"";
-            }
-            searchedSinger += ">" + singer.substring(0, searchResult[0]); // 첫 단어 검색 전
-            let pos;
-            let index;
-            for (let j = 0; j < numwords; j++) {
-                if (j == 0) {
-                    pos = searchResult[0];
-                    index = 0;
-                    searchedSinger += "<b>" + singer.substr(pos, strlen[0]) + "</b>"; // 처음 검색된 부분
-                }
-                else {
-                    if (searchResult[j] > pos) {
-                        pos = searchResult[j];
-                        index = j;
-                        searchedSinger += "<b>" + singer.substr(pos, strlen[j]) + "</b>"; // 다음 검색된 부분
-                    }
-                }
-                if (j != numwords - 1) { // 마지막 단어가 아니면
-                    if (searchResult[j] + strlen[j] < searchResult[j + 1]) { // 다음 단어 검색 전
-                        searchedSinger += singer.substring(searchResult[j] + strlen[j], searchResult[j + 1]);
-                    }
-                }
-            }
-            searchedSinger += singer.substr(pos + strlen[index]) + "</td>"; // 마지막 단어 검색 후
-
-            for (let j = 0; j < songslen; j++) {
-                let songResult = []; // 가수 노래 검색
-                let index = [];
-                for (let k = 0; k < numwords; k++) { // 노래에서도 검색되는지
-                    let songSearch = songs[j].toLowerCase().search(words[k].toLowerCase());
-                    if (songSearch != -1) {
-                        songResult.push(songSearch);
-                        index.push(k);
-                    }
-                }
-                let song = songs[j].split("/")[0];
-                let inlen = index.length;
-                if (inlen != 0) { // 노래에서 검색된 게 있음
-                    searchedSinger += "<td ";
-                    if (songsPerRow == 2) {
-                        searchedSinger += "style=\"width:34%;\"";
-                    }
-                    else {
-                        searchedSinger += "style=\"width:14.5%;\"";
-                    }
-                    searchedSinger += ">" + song.substring(0, songResult[0]);
-                    let pos;
-                    let ind;
-                    for (let k = 0; k < inlen; k++) {
-                        if (k == 0) {
-                            pos = songResult[0];
-                            ind = index[0];
-                            searchedSinger += "<b>" + song.substr(pos, strlen[ind]) + "</b>"; // 처음 검색된 부분
-                        }
-                        else {
-                            if (songResult[k] > pos) {
-                                pos = songResult[k];
-                                ind = index[k];
-                                searchedSinger += "<b>" + song.substr(pos, strlen[ind]) + "</b>"; // 다음 검색된 부분
-                            }
-                        }
-                        if (k != inlen - 1) {
-                            let inK = index[k];
-                            if (songResult[k] + strlen[inK] < songResult[k + 1]) {
-                                searchedSinger += song.substring(songResult[k] + strlen[inK], songResult[k + 1]);
-                            }
-                        }
-                    }
-                    searchedSinger += song.substr(pos + strlen[ind]) + "</td>";
-                }
-                else { // 없음
-                    searchedSinger += "<td ";
-                    if (songsPerRow == 2) {
-                        searchedSinger += "style=\"width:34%;\"";
-                    }
-                    else {
-                        searchedSinger += "style=\"width:14.5%;\"";
-                    }
-                    searchedSinger += ">" + song + "</td>";
-                }
-                if (j % songsPerRow == songsPerRow - 1) {
-                    searchedSinger += "</tr>";
-                    if (j != songslen - 1) {
-                        searchedSinger += "<tr>";
-                    }
-                }
-            }
-            if (songslen % songsPerRow != 0) {
-                searchedSinger += "</tr>";
-            }
+function singerSearch(searchedSinger, spannum, singer, searchResult, numwords, strlen) {
+    searchedSinger += "<tr><td rowspan=\"" + spannum + "\" ";
+    if (songsPerRow == 2) {
+        searchedSinger += "style=\"width:32%;\"";
+    }
+    else {
+        searchedSinger += "style=\"width:13%;\"";
+    }
+    searchedSinger += ">" + singer.substring(0, searchResult[0]); // 첫 단어 검색 전
+    let pos;
+    let index;
+    for (let j = 0; j < numwords; j++) {
+        if (j == 0) {
+            pos = searchResult[0];
+            index = 0;
+            searchedSinger += "<b>" + singer.substr(pos, strlen[0]) + "</b>"; // 처음 검색된 부분
         }
         else {
-            for (let j = 0; j < songslen; j++) {
-                searchResult = [];
-                for (let k = 0; k < numwords; k++) {
-                    let wordSearch = songs[j].toLowerCase().search(words[k].toLowerCase());
-                    if (wordSearch != -1) {
-                        searchResult.push(wordSearch);
-                    }
-                }
-                if (numwords == searchResult.length) {
-                    let song = songs[j].split("/")[0];
-                    searchedSong += "<tr><td>" + singer + "</td>" + "<td>" + song.substring(0, searchResult[0]);
-                    let pos;
-                    let index;
-                    for (let k = 0; k < numwords; k++) {
-                        if (k == 0) {
-                            pos = searchResult[0];
-                            index = 0;
-                            searchedSong += "<b>" + song.substr(pos, strlen[0]) + "</b>";
-                        }
-                        else {
-                            if (searchResult[k] > pos) {
-                                pos = searchResult[k];
-                                index = k;
-                                searchedSong += "<b>" + song.substr(pos, strlen[k]) + "</b>";
-                            }
-                        }
-                        if (k != numwords - 1) {
-                            if (searchResult[k] + strlen[k] < searchResult[k + 1]) {
-                                searchedSong += song.substring(searchResult[k] + strlen[k], searchResult[k + 1]);
-                            }
-                        }
-                    }
-                    searchedSong += song.substr(pos + strlen[index]) + "</td></tr>";
-                }
+            if (searchResult[j] > pos) {
+                pos = searchResult[j];
+                index = j;
+                searchedSinger += "<b>" + singer.substr(pos, strlen[j]) + "</b>"; // 다음 검색된 부분
+            }
+        }
+        if (j != numwords - 1) { // 마지막 단어가 아니면
+            if (searchResult[j] + strlen[j] < searchResult[j + 1]) { // 다음 단어 검색 전
+                searchedSinger += singer.substring(searchResult[j] + strlen[j], searchResult[j + 1]);
             }
         }
     }
-    return { searchedSinger, searchedSong };
-}
-
-function titleSearch(numwords, words, searchedSinger, strlen, searchedSong) {
-    for (let i = 0; i < title.length; i++) {
-        let singer = title[i].singer; // 가수
-        let songs = title[i].songs; // 노래들
-        let songslen = songs.length; // 노래 수
-        let spannum = spanCalc(songslen);
-        let searchResult = []; // 검색 결과
-        for (let j = 0; j < numwords; j++) { // 가수 검색
-            let wordSearch = singer.toLowerCase().search(words[j].toLowerCase());
-            if (wordSearch != -1) {
-                searchResult.push(wordSearch);
-            }
-        }
-        singer = singer.split("/")[0];
-        if (numwords == searchResult.length) { // 가수에서 단어들이 다 검색되면
-            searchedSinger += "<tr><td rowspan=\"" + spannum + "\" ";
-            if (songsPerRow == 2) {
-                searchedSinger += "style=\"width:32%;\"";
-            }
-            else {
-                searchedSinger += "style=\"width:13%;\"";
-            }
-            searchedSinger += ">" + singer.substring(0, searchResult[0]); // 첫 단어 검색 전
-            let pos;
-            let index;
-            for (let j = 0; j < numwords; j++) {
-                if (j == 0) {
-                    pos = searchResult[0];
-                    index = 0;
-                    searchedSinger += "<b>" + singer.substr(pos, strlen[0]) + "</b>"; // 처음 검색된 부분
-                }
-                else {
-                    if (searchResult[j] > pos) {
-                        pos = searchResult[j];
-                        index = j;
-                        searchedSinger += "<b>" + singer.substr(pos, strlen[j]) + "</b>"; // 다음 검색된 부분
-                    }
-                }
-                if (j != numwords - 1) { // 마지막 단어가 아니면
-                    if (searchResult[j] + strlen[j] < searchResult[j + 1]) { // 다음 단어 검색 전
-                        searchedSinger += singer.substring(searchResult[j] + strlen[j], searchResult[j + 1]);
-                    }
-                }
-            }
-            searchedSinger += singer.substr(pos + strlen[index]) + "</td>"; // 마지막 단어 검색 후
-
-            for (let j = 0; j < songslen; j++) {
-                let songResult = []; // 가수 노래 검색
-                let index = [];
-                for (let k = 0; k < numwords; k++) { // 노래에서도 검색되는지
-                    let songSearch = songs[j].toLowerCase().search(words[k].toLowerCase());
-                    if (songSearch != -1) {
-                        songResult.push(songSearch);
-                        index.push(k);
-                    }
-                }
-                let song = songs[j].split("/")[0];
-                let inlen = index.length;
-                if (inlen != 0) { // 노래에서 검색된 게 있음
-                    searchedSinger += "<td ";
-                    if (songsPerRow == 2) {
-                        searchedSinger += "style=\"width:34%;\"";
-                    }
-                    else {
-                        searchedSinger += "style=\"width:14.5%;\"";
-                    }
-                    searchedSinger += ">" + song.substring(0, songResult[0]);
-                    let pos;
-                    let ind;
-                    for (let k = 0; k < inlen; k++) {
-                        if (k == 0) {
-                            pos = songResult[0];
-                            ind = index[0];
-                            searchedSinger += "<b>" + song.substr(pos, strlen[ind]) + "</b>"; // 처음 검색된 부분
-                        }
-                        else {
-                            if (songResult[k] > pos) {
-                                pos = songResult[k];
-                                ind = index[k];
-                                searchedSinger += "<b>" + song.substr(pos, strlen[ind]) + "</b>"; // 다음 검색된 부분
-                            }
-                        }
-                        if (k != inlen - 1) {
-                            let inK = index[k];
-                            if (songResult[k] + strlen[inK] < songResult[k + 1]) {
-                                searchedSinger += song.substring(songResult[k] + strlen[inK], songResult[k + 1]);
-                            }
-                        }
-                    }
-                    searchedSinger += song.substr(pos + strlen[ind]) + "</td>";
-                }
-                else { // 없음
-                    searchedSinger += "<td ";
-                    if (songsPerRow == 2) {
-                        searchedSinger += "style=\"width:34%;\"";
-                    }
-                    else {
-                        searchedSinger += "style=\"width:14.5%;\"";
-                    }
-                    searchedSinger += ">" + song + "</td>";
-                }
-                if (j % songsPerRow == songsPerRow - 1) {
-                    searchedSinger += "</tr>";
-                    if (j != songslen - 1) {
-                        searchedSinger += "<tr>";
-                    }
-                }
-            }
-            if (songslen % songsPerRow != 0) {
-                searchedSinger += "</tr>";
-            }
-        }
-        else {
-            for (let j = 0; j < songslen; j++) {
-                searchResult = [];
-                for (let k = 0; k < numwords; k++) {
-                    let wordSearch = songs[j].toLowerCase().search(words[k].toLowerCase());
-                    if (wordSearch != -1) {
-                        searchResult.push(wordSearch);
-                    }
-                }
-                if (numwords == searchResult.length) {
-                    let song = songs[j].split("/")[0];
-                    searchedSong += "<tr><td>" + singer + "</td>" + "<td>" + song.substring(0, searchResult[0]);
-                    let pos;
-                    let index;
-                    for (let k = 0; k < numwords; k++) {
-                        if (k == 0) {
-                            pos = searchResult[0];
-                            index = 0;
-                            searchedSong += "<b>" + song.substr(pos, strlen[0]) + "</b>";
-                        }
-                        else {
-                            if (searchResult[k] > pos) {
-                                pos = searchResult[k];
-                                index = k;
-                                searchedSong += "<b>" + song.substr(pos, strlen[k]) + "</b>";
-                            }
-                        }
-                        if (k != numwords - 1) {
-                            if (searchResult[k] + strlen[k] < searchResult[k + 1]) {
-                                searchedSong += song.substring(searchResult[k] + strlen[k], searchResult[k + 1]);
-                            }
-                        }
-                    }
-                    searchedSong += song.substr(pos + strlen[index]) + "</td></tr>";
-                }
-            }
-        }
-    }
-    return { searchedSinger, searchedSong };
+    searchedSinger += singer.substr(pos + strlen[index]) + "</td>"; // 마지막 단어 검색 후
+    return searchedSinger;
 }
