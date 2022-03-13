@@ -149,6 +149,7 @@ const other = [{"singer": "등려군", "songs": ["월량대표아적심(첨밀�
     {"singer": "Idina Menzel", "songs": ["Let It Go(겨울왕국 OST)/렛잇고"]},
     {"singer": "Naomi Scott/나오미스콧", "songs": ["Speechless(알라딘 OST)/스피치리스"]},
     {"singer": "", "songs": ["검정고무신", "달려라하니", "세일러문", "시대를초월한마음(이누야샤)", "안녕디지몬", "우리는모두친구(포켓몬)"]}];
+const newUpdate = ["서울시스터즈 - 청춘 열차", "신예영 - 우리 왜 헤어져야 해", "원미연 - 이별여행", "장덕 - 이별인줄 알았어요", "한경애 - 옛시인의 노래"];
 
 let songsPerRow; // 한 줄에 몇 개까지 나열할 건지
 
@@ -189,7 +190,32 @@ function spanCalc(x) {// 몇 줄인지 계산
 function showAll() {// 목록 전부 보여주기
     distinguish();
 
-    htmlText = "<table id=\"baegna\" align=\"center\">";
+    htmlText = "<table id=\"new\" align=\"center\"><tr><td style=\"background-color: rgb(50, 250, 150);\"";
+    let newLength = newUpdate.length;
+    let newSpan = spanCalc(newLength) * 2;
+    let half = songsPerRow / 2;
+    if (newLength % songsPerRow < half) {
+        newSpan = newSpan - 1;
+    }
+    htmlText += " rowspan=\"" + newSpan + "\">New</td>";
+    for (let i = 0; i < newLength; i++) {
+        htmlText += "<td ";
+        if (songsPerRow == 2) {
+            htmlText += "style=\"width:64%;\"";
+        }
+        else {
+            htmlText += "style=\"width:28%;\"";
+        }
+        htmlText += ">" + newUpdate[i] + "</td>";
+        if (i % half == half - 1) {
+            htmlText += "</tr>";
+            if (i != newLength - 1) {
+                htmlText += "<tr>";
+            }
+        }
+    }
+
+    htmlText += "</tr></table><br><table id=\"baegna\" align=\"center\">";
     showTable(title);
     htmlText += "<br><table align=\"center\" <caption><h3 id=\"trot\">트로트</h3></caption>";
     showTable(trot);
