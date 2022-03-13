@@ -190,31 +190,7 @@ function spanCalc(x) {// 몇 줄인지 계산
 function showAll() {// 목록 전부 보여주기
     distinguish();
 
-    htmlText = "<table id=\"new\" align=\"center\"><tr><td style=\"background-color: rgb(50, 250, 150);\"";
-    let newLength = newUpdate.length;
-    let newSpan = spanCalc(newLength) * 2;
-    let half = songsPerRow / 2;
-    if (newLength % songsPerRow < half) {
-        newSpan = newSpan - 1;
-    }
-    htmlText += " rowspan=\"" + newSpan + "\">New</td>";
-    for (let i = 0; i < newLength; i++) {
-        htmlText += "<td ";
-        if (songsPerRow == 2) {
-            htmlText += "style=\"width:64%;\"";
-        }
-        else {
-            htmlText += "style=\"width:28%;\"";
-        }
-        htmlText += ">" + newUpdate[i] + "</td>";
-        if (i % half == half - 1) {
-            htmlText += "</tr>";
-            if (i != newLength - 1) {
-                htmlText += "<tr>";
-            }
-        }
-    }
-
+    makeNewTable();
     htmlText += "</tr></table><br><table id=\"baegna\" align=\"center\">";
     showTable(title);
     htmlText += "<br><table align=\"center\" <caption><h3 id=\"trot\">트로트</h3></caption>";
@@ -228,6 +204,33 @@ function showAll() {// 목록 전부 보여주기
 
     document.getElementById("show").innerHTML = htmlText;
     allHtml = htmlText;
+}
+
+function makeNewTable() {
+    htmlText = "<table id=\"new\" align=\"center\"><tr><td style=\"background-color: rgb(50, 250, 150);\"";
+    let newLength = newUpdate.length;
+    let newSpan = spanCalc(newLength) * 2;
+    let half = songsPerRow / 2;
+    if (newLength % songsPerRow < half) {
+        newSpan = newSpan - 1;
+    }
+    htmlText += " rowspan=\"" + newSpan + "\">New</td>";
+    for (let i = 0; i < newLength; i++) {
+        htmlText += "<td ";
+        if (songsPerRow == 2) {
+            htmlText += "style=\"width:68%;\"";
+        }
+        else {
+            htmlText += "style=\"width:29%;\"";
+        }
+        htmlText += ">" + newUpdate[i] + "</td>";
+        if (i % half == half - 1) {
+            htmlText += "</tr>";
+            if (i != newLength - 1) {
+                htmlText += "<tr>";
+            }
+        }
+    }
 }
 
 function showTable(table) {
