@@ -213,7 +213,8 @@ function makeNewTable() {
     let newLength = newUpdate.length;
     let newSpan = spanCalc(newLength) * 2;
     let half = songsPerRow / 2;
-    if (newLength % songsPerRow < half) {
+    let remainder = newLength % songsPerRow;
+    if (remainder > 0 && remainder <= half) {
         newSpan = newSpan - 1;
     }
     htmlText += " rowspan=\"" + newSpan + "\">New</td>";
