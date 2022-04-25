@@ -40,7 +40,8 @@ const title = [{"singer": "배그나(은하수)", "songs": ["나란여자", "내
     {"singer": "악동뮤지션", "songs": ["어떻게이별까지사랑하겠어, 널사랑하는거지"]},
     {"singer": "안예은", "songs": ["상사화", "홍연"]}, {"singer": "알리", "songs": ["서약", "펑펑", "365일"]},
     {"singer": "애즈원/As One", "songs": ["원하고원망하죠"]}, {"singer": "야다", "songs": ["이미슬픈사랑", "진혼"]},
-    {"singer": "어쿠스틱콜라보", "songs": ["묘해너와"]}, {"singer": "에일리/Ailee", "songs": ["잠시안녕처럼", "저녁하늘", "첫눈처럼너에게가겠다"]},
+    {"singer": "어쿠스틱콜라보", "songs": ["묘해너와"]},
+    {"singer": "에일리/Ailee", "songs": ["잠시안녕처럼", "저녁하늘", "첫눈처럼너에게가겠다"]},
     {"singer": "오렌지캬라멜", "songs": ["아잉"]},
     {"singer": "왁스", "songs": ["날떠난이유", "머니", "부탁해요", "사랑이다그런거니까", "엄마의일기", "오빠", "화장을고치고", "황혼의문턱"]},
     {"singer": "원더걸스", "songs": ["Nobody/노바디"]}, {"singer": "유미", "songs": ["별", "사랑은언제나목마르다"]},
@@ -60,7 +61,6 @@ const title = [{"singer": "배그나(은하수)", "songs": ["나란여자", "내
     {"singer": "임재범", "songs": ["고해", "낙인(추노 OST)"]}, {"singer": "잔나비", "songs": ["주저하는연인들을위해"]},
     {"singer": "임형주", "songs": ["천개의바람이되어"]},
     {"singer": "장나라", "songs": ["나도여자랍니다", "천애지아(하늘끝에이르는바람, 동이 OST)", "Sweet Dream/스윗드림"]},
-    {"singer": "장윤정", "songs": ["꽃", "너떠난후에", "다시한번", "당신편", "돼지토끼", "목포행완행열차", "바람길", "반창고", "벚꽃길", "불나비", "사랑아", "사랑참", "세월아", "송인", "애가타", "약속", "어머나", "어부바", "옆집누나", "올래", "운명에게", "장윤정트위스트", "좋은당신", "짠짜라", "첫사랑", "초혼", "케세라세라", "콩깍지", "해바라기"]},
     {"singer": "장범준", "songs": ["흔들리는꽃들속에서네샴푸향이느껴진거야"]},
     {"singer": "장혜진", "songs": ["아름다운날들"]}, {"singer": "정경화", "songs": ["지상에서영원으로"]},
     {"singer": "정은지", "songs": ["그대라구요", "하늘바라기"]}, {"singer": "정준일", "songs": ["안아줘"]},
@@ -73,9 +73,7 @@ const title = [{"singer": "배그나(은하수)", "songs": ["나란여자", "내
     {"singer": "태연", "songs": ["그대라는시", "그리고하나", "내게들려주고싶은말", "들리나요", "만약에", "미치게보고싶은", "불티", "사계", "사랑해요", "숨겨진세상(겨울왕국2 OST)", "제주도의푸른밤", "Curtain Call/커튼콜", "Fine/파인", "I/아이", "Rain/레인"]},
     {"singer": "패티김", "songs": ["이별"]}, {"singer": "페이지", "songs": ["이별이오지못하게"]},
     {"singer": "폴킴", "songs": ["모든날모든순간"]}, {"singer": "플라이 투 더 스카이", "songs": ["가슴아파도"]},
-    {"singer": "허각", "songs": ["언제나"]},
-    {"singer": "홍진영", "songs": ["그대오는날", "눈물비", "달의그림자/클랜즈:달의그림자 OST", "따르릉", "부기맨", "사랑은꽃잎처럼", "사랑은다이러니", "사랑의배터리", "사랑의와이파이", "사랑이좋아", "산다는건", "안돼요", "엄지척", "오늘밤에", "잘가라"]},
-    {"singer": "황인욱", "songs": ["포장마차"]}, 
+    {"singer": "허각", "songs": ["언제나"]}, {"singer": "황인욱", "songs": ["포장마차"]}, 
     {"singer": "HYNN/박혜원", "songs": ["시든꽃에물을주듯", "LET ME OUT/렛미아웃"]}, {"singer": "izi/이지", "songs": ["응급실/쾌걸춘향 OST"]},
     {"singer": "SG워너비", "songs": ["살다가"]}, {"singer": "Sondia/손디아", "songs": ["어른", "혼잣말"]},
     {"singer": "TWICE/트와이스", "songs": ["Dance The Night Away/댄스더나잇어웨이"]}, {"singer": "The One/더원", "songs": ["사랑아"]}, 
@@ -111,8 +109,10 @@ const trot = [{"singer": "강민주", "songs": ["회룡포"]}, {"singer": "강�
     {"singer": "이미자", "songs": ["노래는나의인생", "동백아가씨", "섬마을선생님", "아씨", "여로"]},
     {"singer": "이이경", "songs": ["칼퇴근"]}, {"singer": "이자연", "songs": ["당신의의미", "찰랑찰랑"]},
     {"singer": "이효정", "songs": ["우리어머니"]}, {"singer": "이혜리", "songs": ["모르나봐", "자갈치아지매"]},
-    {"singer": "임주리", "songs": ["립스틱짙게바르고"]}, {"singer": "정다경", "songs": ["가라그래"]},
-    {"singer": "전미경", "songs": ["장녹수"]}, {"singer": "정수라", "songs": ["도라지꽃"]}, {"singer": "정은실", "songs": ["은실이"]},
+    {"singer": "임주리", "songs": ["립스틱짙게바르고"]},
+    {"singer": "장윤정", "songs": ["꽃", "너떠난후에", "다시한번", "당신편", "돼지토끼", "목포행완행열차", "바람길", "반창고", "벚꽃길", "불나비", "사랑아", "사랑참", "세월아", "송인", "애가타", "약속", "어머나", "어부바", "옆집누나", "올래", "운명에게", "장윤정트위스트", "좋은당신", "짠짜라", "첫사랑", "초혼", "케세라세라", "콩깍지", "해바라기"]},
+    {"singer": "정다경", "songs": ["가라그래"]}, {"singer": "전미경", "songs": ["장녹수"]},
+    {"singer": "정수라", "songs": ["도라지꽃"]}, {"singer": "정은실", "songs": ["은실이"]},
     {"singer": "정의송", "songs": ["님이여"]}, {"singer": "조은새", "songs": ["하트하트"]},
     {"singer": "주현미", "songs": ["그대를불러봅니다", "그다음은나도몰라요", "길", "또만났네요", "러브레터", "사랑가", "신사동그사람", "아버지", "여인의눈물", "여정", "정말좋았네", "짝사랑"]},
     {"singer": "진미령", "songs": ["미운사랑"]},
@@ -122,6 +122,7 @@ const trot = [{"singer": "강민주", "songs": ["회룡포"]}, {"singer": "강�
     {"singer": "태진아", "songs": ["당신의눈물", "동반자", "사랑은아무나하나", "아줌마", "애인", "진진자라"]},
     {"singer": "편승엽", "songs": ["찬찬찬"]}, {"singer": "한혜진", "songs": ["갈색추억", "너는내남자", "마지막연인", "서울의밤"]},
     {"singer": "홍자", "songs": ["눈물의술잔"]}, {"singer": "홍지윤", "songs": ["오라"]},
+    {"singer": "홍진영", "songs": ["그대오는날", "눈물비", "달의그림자/클랜즈:달의그림자 OST", "따르릉", "부기맨", "비바라비다", "사랑은꽃잎처럼", "사랑은다이러니", "사랑의배터리", "사랑의와이파이", "사랑이좋아", "산다는건", "안돼요", "엄지척", "오늘밤에", "잘가라"]},
     {"singer": "LPG/엘피지", "songs": ["사랑의초인종"]}];
 const mrTrot = [{"singer": "김호중", "songs": ["고맙소", "너나나나", "살았소", "태클을걸지마", "할무니"]},
     {"singer": "김희재", "songs": ["별, 그대/별그대"]}, {"singer": "사랑의콜센타", "songs": ["날보러와요"]},
@@ -161,7 +162,9 @@ const other = [{"singer": "등려군", "songs": ["월량대표아적심(첨밀�
     {"singer": "Idina Menzel", "songs": ["Let It Go(겨울왕국 OST)/렛잇고"]},
     {"singer": "Naomi Scott/나오미스콧", "songs": ["Speechless(알라딘 OST)/스피치리스"]},
     {"singer": "", "songs": ["검정고무신", "달려라하니", "세일러문", "시대를초월한마음(이누야샤)", "안녕디지몬", "우리는모두친구(포켓몬)"]}];
-const newUpdate = ["노라조 - 변비", "HYNN(박혜원) - 시든 꽃에 물을 주듯", "에일리(Ailee) - 저녁 하늘", "황인욱 - 포장마차", "다비치 - 슬픈 다짐", "양지은 - 그 강을 건너지마오"];
+const duet = [{"singer": "남진, 장윤정", "songs": ["당신이좋아"]}, {"singer": "박정현, 임재범", "songs": ["사랑보다깊은상처"]},
+    {"singer": "윤민수, 장혜진", "songs": ["그남자그여자", "술이문제야"]}];
+const newUpdate = ["남진, 장윤정 - 당신이 좋아", "박정현, 임재범 - 사랑보다 깊은 상처", "윤민수, 장혜진 - 그 남자 그 여자", "윤민수, 장혜진 - 술이 문제야", "홍진영 - 비바 라 비다"];
 
 let songsPerRow; // 한 줄에 몇 개까지 나열할 건지
 
@@ -213,9 +216,39 @@ function showAll() {// 목록 전부 보여주기
     showTable(old);
     htmlText += "<br><table align=\"center\" <caption><h3 id=\"other\">팝, 애니</h3></caption>";
     showTable(other);
+    htmlText += "<br><table align=\"center\" <caption><h3 id=\"duet\">듀엣</h3></caption>";
+    showDuet();
 
     document.getElementById("show").innerHTML = htmlText;
     allHtml = htmlText;
+}
+
+function showDuet() {
+    for (let i = 0; i < duet.length; i++) {
+        let songslen = duet[i].songs.length;
+        let spannum = spanCalc(songslen);
+        htmlText += "<tr><td rowspan=\"" + spannum + "\">" + duet[i].singer.split("/")[0] + "</td>"; // 가수
+        for (let j = 0; j < songslen; j++) { // 노래들
+            htmlText += "<td ";
+            if (songsPerRow == 2) {
+                htmlText += "style=\"width:34%;\"";
+            }
+            else {
+                htmlText += "style=\"width:34%;\"";
+            }
+            htmlText += ">" + duet[i].songs[j].split("/")[0] + "</td>";
+            if (j % songsPerRow == songsPerRow - 1) {
+                htmlText += "</tr>";
+                if (j != songslen - 1) {
+                    htmlText += "<tr>";
+                }
+            }
+        }
+        if (songslen % songsPerRow != 0) {
+            htmlText += "</tr>";
+        }
+    }
+    htmlText += "</table>";
 }
 
 function makeNewTable() {
@@ -293,6 +326,7 @@ function search(str) {// 검색 결과 띄우기
         ({ searchedSinger, searchedSong } = searchTable(mrTrot, words, wordslen, numwords, searchedSinger, searchedSong));
         ({ searchedSinger, searchedSong } = searchTable(old, words, wordslen, numwords, searchedSinger, searchedSong));
         ({ searchedSinger, searchedSong } = searchTable(other, words, wordslen, numwords, searchedSinger, searchedSong));
+        ({ searchedSinger, searchedSong } = searchTable(duet, words, wordslen, numwords, searchedSinger, searchedSong));
         document.getElementById("show").innerHTML = searchedSinger + searchedSong;
     }
 }
