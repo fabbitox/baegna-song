@@ -132,7 +132,7 @@ const other = [{"singer": "등려군", "songs": ["월량대표아적심(첨밀�
     {"singer": "", "songs": ["검정고무신", "달려라하니", "세일러문", "시대를초월한마음(이누야샤)", "안녕디지몬", "우리는모두친구(포켓몬)"]}];
 const duet = [{"singer": "남진, 장윤정", "songs": ["당신이좋아"]}, {"singer": "박정현, 임재범", "songs": ["사랑보다깊은상처"]},
     {"singer": "윤민수, 장혜진", "songs": ["그남자그여자", "술이문제야"]}];
-const newUpdate = ["백지영 - IF I", "서주경 - 당돌한 여자", "이효리 - 잔소리", "조수미 - 나가거든", "포맨 - 추억에 살아(Feat. 이영현)"];
+const newUpdate = [];
 let songsPerRow; // 한 줄에 몇 개까지 나열할 건지
 
 let allHtml = null;
@@ -172,8 +172,8 @@ function spanCalc(x) {// 몇 줄인지 계산
 function showAll() {// 목록 전부 보여주기
     distinguish();
 
-    makeNewTable();
-    htmlText += "</tr></table><br><table id=\"baegna\" align=\"center\">";
+    //makeNewTable();
+    htmlText = "</tr></table><br><table id=\"baegna\" align=\"center\">";
     showTable(title);
     htmlText += "<br><table align=\"center\" <caption><h3 id=\"trot\">트로트</h3></caption>";
     showTable(trot);
@@ -194,7 +194,7 @@ function showDuet() {
     for (let i = 0; i < duet.length; i++) {
         let songslen = duet[i].songs.length;
         let spannum = spanCalc(songslen);
-        htmlText += "<tr><td rowspan=\"" + spannum + "\">" + duet[i].singer.split("/")[0] + "</td>"; // 가수
+        htmlText += "<tr><th rowspan=\"" + spannum + "\">" + duet[i].singer.split("/")[0] + "</th>"; // 가수
         for (let j = 0; j < songslen; j++) { // 노래들
             htmlText += "<td ";
             if (songsPerRow == 2) {
@@ -250,7 +250,7 @@ function showTable(table) {
     for (let i = 0; i < table.length; i++) {
         let songslen = table[i].songs.length;
         let spannum = spanCalc(songslen);
-        htmlText += "<tr><td rowspan=\"" + spannum + "\">" + table[i].singer.split("/")[0] + "</td>"; // 가수
+        htmlText += "<tr><th rowspan=\"" + spannum + "\">" + table[i].singer.split("/")[0] + "</th>"; // 가수
         for (let j = 0; j < songslen; j++) { // 노래들
             htmlText += "<td ";
             if (songsPerRow == 2) {

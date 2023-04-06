@@ -10,7 +10,7 @@
     </head>
     <body onload="showAll()">
         <h1>배그나의 아는 곡 리스트</h1>
-        <p>가수 또는 제목으로 검색<small style="color: rgb(150, 200, 100)"> 2023.01.03 update</small></p>
+        <p>가수 또는 제목으로 검색<!-- <small style="color: rgb(150, 200, 100)"> 2023.01.03 update</small> --></p>
         <p>
             <input id="searchBox" type="text" oninput="search(this.value)">
             <button onclick="cleartext()"
@@ -19,7 +19,7 @@
                 style="background-color: rgb(250, 50, 100);">초기화</button>
         </p>
         <p id="show"></p><br><br><br><br>
-        <p class="index" style="background-color: white;">
+        <p class="index">
             <button onclick="location.href=''"
                 onmouseenter="returncolor(this)"
                 onmouseleave="changecolor(this)"
@@ -49,7 +49,7 @@
                 onmouseenter="changecolor(this)"
                 onmouseleave="returncolor(this)"
                 style="background-color: rgb(50, 200, 250);">듀엣</button>
-            <small>&nbsp;made by 미로그나</small>
+            <span style="background-color: white; padding: 1px 10px 3px 10px; border-radius: 4px; border: 2px solid rgb(50, 250, 200);"><small>made by 미로그나</small></span>
         </p>
         <script src="script.js"></script>
     </body>

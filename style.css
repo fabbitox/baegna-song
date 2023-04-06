@@ -17,6 +17,9 @@ h1 {
 table {
     width: 96%;
 }
+th {
+    border: 2px groove;
+}
 td {
     text-align: center;
     border: 1px solid;
