@@ -1,4 +1,6 @@
 # baegna-song
+https://fabbitox.github.io/baegna-song/
+
 배그나가 부를 수 있는 노래 리스트
 
 ### 카테고리별로 분류
