@@ -35,7 +35,7 @@ b {
 }
 p.index {
     position: fixed;
-    left: 4%;
-    right: 4%;
-    bottom: 4%;
+    left: 1rem;
+    right: 1rem;
+    bottom: 1rem;
 }
